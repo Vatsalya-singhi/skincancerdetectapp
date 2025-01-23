@@ -1,0 +1,126 @@
+<mat-grid-list cols="12" rowHeight="100%">
+  <!-- side toolbar -->
+  <mat-grid-tile colspan="1" class="h-100">
+    <mat-card appearance="outlined">
+      <mat-card-content class="h-100" style="padding-inline: 0;">
+        <div class="toolbar-parent">
+          <!-- logo -->
+          <mat-list-item style="margin-bottom: 25px;">
+            <button mat-icon-button aria-label="logo button">
+              <mat-icon>polymer</mat-icon>
+            </button>
+          </mat-list-item>
+          <!-- logo -->
+
+          <mat-divider></mat-divider>
+
+          <!-- toolbar listing -->
+          <div class="toolbar-parent">
+            <mat-list>
+              <!-- back -->
+              <mat-list-item>
+                <button mat-icon-button aria-label="back button">
+                  <mat-icon>arrow_back</mat-icon>
+                </button>
+              </mat-list-item>
+              <!-- 1 -->
+              <mat-list-item>
+                <button mat-icon-button aria-label="dashboard button">
+                  <mat-icon>space_dashboard</mat-icon>
+                </button>
+              </mat-list-item>
+              <!-- 2 -->
+              <mat-list-item>
+                <button mat-icon-button aria-label="description button">
+                  <mat-icon>description</mat-icon>
+                </button>
+              </mat-list-item>
+              <!-- 3 -->
+              <mat-list-item>
+                <button mat-icon-button aria-label="description button">
+                  <mat-icon>analytics</mat-icon>
+                </button>
+              </mat-list-item>
+              <!-- 4 -->
+              <mat-list-item>
+                <button mat-icon-button aria-label="description button">
+                  <mat-icon>view_in_ar</mat-icon>
+                </button>
+              </mat-list-item>
+              <!-- 5 -->
+              <mat-list-item>
+                <button mat-icon-button aria-label="description button">
+                  <mat-icon>online_prediction</mat-icon>
+                </button>
+              </mat-list-item>
+            </mat-list>
+            <!-- settings -->
+            <mat-list-item>
+              <button mat-icon-button aria-label="logo button">
+                <mat-icon>settings</mat-icon>
+              </button>
+            </mat-list-item>
+          </div>
+          <!-- toolbar listing -->
+
+          <mat-divider></mat-divider>
+
+          <!-- logout -->
+          <mat-list-item style="margin-top: 25px;">
+            <button mat-icon-button aria-label="logo button">
+              <mat-icon>logout</mat-icon>
+            </button>
+          </mat-list-item>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <!-- dashboard -->
+  <mat-grid-tile colspan="11" style="background-color: lightblue;">
+
+    <div style="height:100%; width:100%;">
+      <div class="flex items-center justify-around">
+
+        <!-- title -->
+        <div>
+          <h6>Skin Cancer Detection with 3D-TBP</h6>
+          <h4>Visual Data Insights</h4>
+        </div>
+
+        <div>
+          
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <gridster [options]="options">
+      @for (item of dashboard; track item;let idx = $index) {
+      <gridster-item [item]="item">
+        <div (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()">Some content to click
+          without dragging the widget</div>
+        <div class="item-buttons">
+          <button class="drag-handler">
+            <mat-icon>open_with</mat-icon>
+          </button>
+          <button class="remove-button" (click)="removeItem(item)" (touchstart)="removeItem(item)">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <app-distribution-plot [item]="plotList[idx]"></app-distribution-plot>
+        </div>
+
+      </gridster-item>
+
+      }
+    </gridster>
+
+  </mat-grid-tile>
+
+</mat-grid-list>
